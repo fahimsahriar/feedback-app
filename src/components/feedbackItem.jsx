@@ -1,15 +1,17 @@
-import {useState} from 'react';
+import ReactPropTypes from "react";
+import Card from './shared/Card'
 
-function FeedbackItem() {
-    const [rating, setRate] = useState(5);
-    const [reviewText, setText] = useState('This product is amazing');
-    
+function FeedbackItem({item}) {
     return (
-        <div className='card'>
-            <div className="num-display">{rating}</div>
-            <div className="text-display">{reviewText}</div>
-        </div>
+        <Card >
+            <div className="num-display">{item.rating}</div>
+            <div className="text-display">{item.text}</div>
+        </Card>
     );
+}
+
+FeedbackItem.ReactPropTypes = {
+    item: ReactPropTypes.object,
 }
 
 export default FeedbackItem;
