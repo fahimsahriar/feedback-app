@@ -1,7 +1,7 @@
 import ReactPropTypes from "react";
 import FeedbackItem from './feedbackItem';
 
-function FeedbackList({feedback}) {
+function FeedbackList({feedback,handleDelete2}) {
     if(!feedback || feedback.length === 0) {
         return(<p>No Reviews for this product</p>);
     }
@@ -10,7 +10,10 @@ function FeedbackList({feedback}) {
             {feedback.map( stitem=>{
                 return (
                 <div key={stitem.id}>
-                    <FeedbackItem  item = {stitem} />
+                    <FeedbackItem  
+                        item = {stitem}
+                        handleDelete = {handleDelete2} 
+                    />
                 </div>)
             })}
         </div>
