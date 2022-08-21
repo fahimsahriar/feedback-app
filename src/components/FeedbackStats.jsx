@@ -3,11 +3,11 @@ function FeedbackStats({feedback}) {
     let sum = 0;
     function avg(feedback){
         feedback.map(item=>{
-            sum = sum + item.rating
+            sum = sum + item.rating;
         })
         return (sum=sum/l)
     }
-    let avgf = avg(feedback);
+    let avgf = avg(feedback).toFixed(1);
     return (
         <div className="feedback-stats">
             <div>{l} Reviews</div>

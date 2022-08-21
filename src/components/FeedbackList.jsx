@@ -1,6 +1,5 @@
 import ReactPropTypes from "react";
 import FeedbackItem from './feedbackItem';
-import { motion,AnimatePresence } from "framer-motion"
 
 function FeedbackList({feedback,handleDelete2}) {
     if(!feedback || feedback.length === 0) {
@@ -10,12 +9,13 @@ function FeedbackList({feedback,handleDelete2}) {
         <div className="feedback-list">
             {feedback.map( stitem=>{
                 return (
-                <div key={stitem.id}>
-                    <FeedbackItem  
-                        item = {stitem}
-                        handleDelete = {handleDelete2} 
-                    />
-                </div>)
+                    <div key={stitem.id}>
+                        <FeedbackItem  
+                            item = {stitem}
+                            handleDelete = {handleDelete2} 
+                        />
+                    </div>
+                )
             })}
         </div>
     )

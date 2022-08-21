@@ -14,7 +14,7 @@ function FeedbackWriting ({handleAdd}) {
         if(text===''){
             setBtnDisabled(true);
             setMessage(null);
-        } else if(text!='' && text.trim().length<=10) {
+        } else if(text!=='' && text.trim().length<=10) {
             setBtnDisabled(true);
             setMessage('Must be at least 10 character');
         } else {

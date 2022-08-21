@@ -1,35 +1,20 @@
-import { useState } from "react";
-import Header from "./components/header";
-import FeedbackList from "./components/FeedbackList";
-import FeedbackData from "./data/FeedbackData"; 
-import FeedbackStats from "./components/FeedbackStats";
-import FeedbackWriting from "./components/FeedbackWriting";
-import {v4 as uuidv4} from 'uuid'
+import { BrowserRouter as Router, Routes,Route } from "react-router-dom";
+
+import About from "./components/About";
+import Home from "./components/Home";
+import Header from "./components/header"
 
 function App()
 {
-    const [feedback, setFeedback] = useState(FeedbackData);
-    const deleteFeedback = (id) =>{
-        if(window.confirm('Are you deleting the feedback?')) {
-            setFeedback(feedback.filter( (item)=> item.id!=id  ))
-        }
-    }
-    const addFeedback = (newFeedback)=>{
-        newFeedback.id = uuidv4();
-        setFeedback([newFeedback,...feedback]);
-    }
+    
     return (
-        <>
+        <Router>
             <Header />
-            <div className="container">
-                <FeedbackWriting handleAdd={addFeedback} />
-                <FeedbackStats feedback={feedback} />
-                <FeedbackList 
-                    feedback={feedback}
-                    handleDelete2 = {deleteFeedback}
-                />
-            </div>
-        </>
+            <Routes>
+                <Route path="/" element={<Home/>} />
+                <Route path="/about" element={<About/>} />
+            </Routes>
+        </Router>
     )
 }
 export default App
